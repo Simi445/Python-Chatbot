@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>ODC - Chatbot</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title">ODC - Chatbot</div>
+        <div class="box">
+            {% for sender, message in chat_history %}
+                <div class="item {% if sender == 'user' %}right{% endif %}">
+                    {% if sender == 'ai' %}
+                        <div class="icon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                    {% endif %}
+                    <div class="msg">
+                        {% if sender == 'ai_image' %}
+                            <p>Image generated:</p>
+                            <img src="{{ message }}" alt="Generated Image" style="max-width: 150px; max-height: 150px;">
+                        {% else %}
+                            <p>{{ message }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <br clear="both">
+            {% endfor %}
+        </div>
+
+        <div class="typing-area">
+            <form method="post" action="/chat/">
+                {% csrf_token %}
+                <div class="input-field">
+                    <input type="text" name="message" id="user-input" placeholder="Type your message" required>
+                    <button type="submit">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+    <script>
+    function scrollToBottom() {
+        const chatBox = document.querySelector('.box');
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+    window.onload = scrollToBottom;
+    </script>
+</html>
