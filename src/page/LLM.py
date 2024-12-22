@@ -1,10 +1,14 @@
 import requests
+import httpx
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama.llms import OllamaLLM
 
 
 class LLMChatbot:
     def __init__(self):
+        """
+        Initialize the LLMChatbot with a specific model, time frame, context, and template.
+        """
         self.model = OllamaLLM(model="llama3.1")
         self.time_frame = 0
         self.context = ""
@@ -35,6 +39,15 @@ class LLMChatbot:
             Answer: """
 
     def download_image(self, prompt):
+        """
+        Download an image based on the given prompt.
+
+        Args:
+            prompt (str): The prompt for generating the image.
+
+        Returns:
+            str: The file path of the downloaded image if successful, otherwise None.
+        """
         url = f"https://pollinations.ai/p/{prompt}"
         response = requests.get(url)
         if response.status_code == 200: #this is success
@@ -46,9 +59,22 @@ class LLMChatbot:
             return None
 
     def prompting_logic(self, prompt_text: str):
+        """
+        Process the user's prompt and generate a response.
+
+        Args:
+            prompt_text (str): The user's prompt text.
+
+        Returns:
+            dict: A dictionary containing the response text and optionally the image path.
+        """
         prompt = ChatPromptTemplate.from_template(self.template)
         chain = prompt | self.model
-        response = chain.invoke({"context" : self.context, "question": prompt_text})
+
+        try:
+            response = chain.invoke({"context" : self.context, "question": prompt_text})
+        except httpx.ConnectError:
+            return {"text": "Sorry, I am unable to connect to the service at the moment. Please try again later.", "image": None}
 
         if "IMAGE_GENERATION = TRUE" in response:
             response = response.replace("IMAGE_GENERATION = TRUE : ","")
@@ -66,4 +92,3 @@ class LLMChatbot:
         """
         self.time_frame += 1
         return {"text": response, "image": None}
-        
