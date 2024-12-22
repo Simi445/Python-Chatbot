@@ -1,0 +1,4 @@
+django
+requests
+langchain_core
+langchain_ollama
