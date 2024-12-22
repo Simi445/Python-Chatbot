@@ -11,6 +11,15 @@ chat_history = [("ai", "Hello! I am a language model chatbot, created by Simi, S
 chatbot = LLMChatbot()
 
 def home_view(request):
+    """
+    Render the home page with the current chat history.
+
+    Args:
+        request: The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered home page.
+    """
     context = {
         "chat_history": chat_history
     }
@@ -19,6 +28,15 @@ def home_view(request):
 
 @csrf_exempt
 def chat_view(request):
+    """
+    Handle the chat view, processing user messages and generating bot responses.
+
+    Args:
+        request: The HTTP request object.
+
+    Returns:
+        HttpResponse: Redirects to the home page after processing the chat.
+    """
     if request.method == "POST":
         user_message = request.POST.get("message", "")
 

@@ -20,7 +20,6 @@ from django.urls import path
 from page.views import (home_view, chat_view)
 
 urlpatterns = [
-    path('', home_view),
-    path('/', home_view, name='home'),
+    path('', home_view, name="home"),
     path('chat/', chat_view, name="chat"),
 ]
