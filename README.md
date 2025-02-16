@@ -22,7 +22,7 @@ This project is a language model chatbot built using Django and the LangChain li
 4. Clone the repository:
 
    ```sh
-   git clone https://github.com/yourusername/Python-Chatbot.git
+   git clone https://github.com/Simi445/Python-Chatbot.git
    cd Python-Chatbot
    ```
 
