@@ -10,28 +10,40 @@ This project is a language model chatbot built using Django and the LangChain li
 - Follows specific rules for answering questions and generating images.
 
 ## Installation
+1. Download ollama on your PC:
+   
+   ```sh
+   https://ollama.com/download
+   ```
 
-1. Clone the repository:
+2. Install the llama 3.1 version with 8B tokens:
+   
+   ```sh
+   ollama run llama3.1
+   ```
+   
+4. Clone the repository:
 
    ```sh
    git clone https://github.com/yourusername/Python-Chatbot.git
    cd Python-Chatbot
    ```
 
-2. Create a virtual environment and activate it:
+5. Create a virtual environment and activate it:
 
    ```sh
    python -m venv venv
    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    ```
 
-3. Install the required packages:
+6. Install the required packages:
 
    ```sh
    pip install -r requirements.txt
    ```
 
-4. Run the Django server:
+7. Run the Django server:
+   
    ```sh
    python manage.py runserver
    ```
