@@ -73,9 +73,18 @@ This project is a language model chatbot built using Django and the LangChain li
 - `home_view(request)`: Renders the home page with the current chat history.
 - `chat_view(request)`: Handles the chat view, processing user messages and generating bot responses.
 
-## Contributing
+## Contributions
 
-Contributions are welcome! Please open an issue or submit a pull request for any changes or improvements.
+As part of my Python chatbot project, I integrated **Pollinations.AI** services to enhance its functionality with AI-generated text and images ([pollinations.ai](https://pollinations.ai/?utm_source=chatgpt.com)).
+
+### Features Implemented:
+
+- **Image Generation Integration**  
+  Utilized **Pollinations.AI's image generation API** to allow the chatbot to generate and display images based on user prompts.
+
+- **Text Generation Enhancement**  
+  Integrated **Pollinations.AI's text generation API** to improve chatbot responses.
+
 
 ## License
 
