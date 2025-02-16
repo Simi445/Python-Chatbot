@@ -52,7 +52,7 @@ This project is a language model chatbot built using Django and the LangChain li
 
 ## Showcase
 
-![Chatbot](./showcase/chatbot.gif)
+![Chatbot](./chatbot.gif)
 
 ## Project Structure
 
