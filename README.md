@@ -50,6 +50,10 @@ This project is a language model chatbot built using Django and the LangChain li
 1. Open your web browser and navigate to `http://127.0.0.1:8000/`.
 2. Start interacting with the chatbot by typing your messages in the chat box.
 
+## Showcase
+
+![Chatbot](./showcase/chatbot.gif)
+
 ## Project Structure
 
 - `src/page/LLM.py`: Contains the `LLMChatbot` class which handles the logic for generating responses and images.
