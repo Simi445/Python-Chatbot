@@ -10,7 +10,7 @@ This project is a language model chatbot built using Django and the LangChain li
 - Follows specific rules for answering questions and generating images.
 
 ## Installation
-1. Download ollama on your PC: https://ollama.com/download
+1. Download ollama on your PC:    https://ollama.com/download
 
 
 2. Install the llama 3.1 version with 8B tokens:
